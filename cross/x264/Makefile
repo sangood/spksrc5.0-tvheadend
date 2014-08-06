@@ -13,7 +13,7 @@ HOMEPAGE = http://www.videolan.org/developers/x264.html
 COMMENT  = x264 is a free software library and application for encoding video streams into the H.264/MPEG-4 AVC forma
 LICENSE  =
 
-CONFIGURE_ARGS =  --enable-asm --enable-static --disable-opencl --enable-pic --enable-strip  --prefix=$(INSTALL_PREFIX)  --cross-prefix=$(TC_PATH)$(TC_PREFIX) --extra-cflags="-I$(WORK_DIR)/install$(INSTALL_PREFIX)/include" --extra-ldflags="-L$(WORK_DIR)/install$(INSTALL_PREFIX)/lib" 
+CONFIGURE_ARGS =  --disable-asm --enable-static --disable-opencl --enable-pic --enable-strip  --prefix=$(INSTALL_PREFIX)  --cross-prefix=$(TC_PATH)$(TC_PREFIX) --extra-cflags="-I$(WORK_DIR)/install$(INSTALL_PREFIX)/include" --extra-ldflags="-L$(WORK_DIR)/install$(INSTALL_PREFIX)/lib" 
 
 ifeq ($(findstring $(ARCH), 88f6281),$(ARCH))
 ADDITIONAL_CFLAGS = -O0
