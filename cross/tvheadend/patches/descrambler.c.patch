@@ -1,0 +1,10 @@
+--- ./src/descrambler/descrambler.c.orig	2013-08-29 00:08:39.000000000 +0800
++++ ./src/descrambler/descrambler.c	2014-07-24 15:13:24.000000000 +0800
+@@ -101,6 +101,7 @@
+   { "Bulcrypt",         0x4aee },
+   { "Bulcrypt",         0x5581 },
+   { "Verimatrix",       0x5601 },
++  { "StreamGuard",      0x4ad2 },//add
+ };
+ 
+ void

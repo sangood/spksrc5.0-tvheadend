@@ -1,0 +1,20 @@
+--- ./src/descrambler/capmt.c.orig	2013-08-29 00:08:39.000000000 +0800
++++ ./src/descrambler/capmt.c	2014-07-24 15:18:44.000000000 +0800
+@@ -800,11 +800,15 @@
+                 cad.cad_length = 0x07;
+                 cad.cad_data[5] = cce2->cce_providerid >> 8;
+                 cad.cad_data[6] = cce2->cce_providerid & 0xffffff;
+-              } else if (cce2->cce_caid >> 8 == 0x4a) {
++              } else if (cce2->cce_caid >> 8 == 0x4a && cce2->cce_caid!=0x4ad2){
+                 cad.cad_length = 0x05;
+                 cad.cad_data[4] = cce2->cce_providerid & 0xffffff;
+-              } else
++              }else if (cce2->cce_caid == 0x4ad2) {//streamguard
++                cad.cad_length = 0x04;
++                cad.cad_data[3] = cce2->cce_providerid & 0xffffff;
++              }else{
+                 tvhlog(LOG_WARNING, "capmt", "Unknown CAID type, don't know where to put provider ID");
++              }
+             }
+             memcpy(&buf[pos], &cad, cad.cad_length + 2);
+             pos += cad.cad_length + 2;

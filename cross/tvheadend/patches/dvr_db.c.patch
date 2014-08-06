@@ -1,0 +1,17 @@
+--- src/dvr/dvr_db.c.orig	2013-12-19 12:28:20.000000000 +0800
++++ src/dvr/dvr_db.c	2013-12-19 14:01:11.000000000 +0800
+@@ -1089,7 +1089,13 @@
+   dvr_config_t *cfg;
+ 
+   dvr_iov_max = sysconf(_SC_IOV_MAX);
+-
++      //add
++    if( dvr_iov_max == -1 )
++    #ifdef IOV_MAX
++            dvr_iov_max = IOV_MAX;
++    #else
++            dvr_iov_max = 16;
++    #endif
+   /* Default settings */
+ 
+   LIST_INIT(&dvrconfigs);

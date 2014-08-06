@@ -1,0 +1,11 @@
+--- ./src/input/mpegts/dvb_psi.c.orig	2014-05-23 23:42:16.000000000 +0800
++++ ./src/input/mpegts/dvb_psi.c	2014-07-25 13:04:37.000000000 +0800
+@@ -1380,6 +1380,7 @@
+       hts_stream_type = SCT_MPEG2AUDIO;
+       break;
+ 
++    case 0x06:
+     case 0x81:
+       hts_stream_type = SCT_AC3;
+       break;
+

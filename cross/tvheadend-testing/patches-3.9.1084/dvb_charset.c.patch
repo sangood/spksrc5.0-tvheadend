@@ -1,0 +1,11 @@
+--- ./src/input/mpegts/dvb_charset.c.orig	2014-07-13 01:51:06.000000000 +0800
++++ ./src/input/mpegts/dvb_charset.c	2014-07-29 16:36:51.000000000 +0800
+@@ -153,6 +153,8 @@
+     "ISO-8859-14",
+     "ISO-8859-15",
+     "UTF-8",
++    "GB2312",
++    "UCS2",
+   };
+   htsmsg_t *m = htsmsg_create_list();
+   for ( i = 0; i < ARRAY_SIZE(charsets); i++)

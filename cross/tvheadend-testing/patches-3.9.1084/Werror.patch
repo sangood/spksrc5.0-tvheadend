@@ -1,0 +1,12 @@
+--- Makefile.orig	2014-06-26 15:02:28.000000000 +0800
++++ Makefile	2014-06-26 22:37:15.000000000 +0800
+@@ -28,7 +28,7 @@
+ #
+ 
+ CFLAGS  += -g -O2
+-CFLAGS  += -Wall -Werror -Wwrite-strings -Wno-deprecated-declarations
++CFLAGS  += -Wall -Wwrite-strings -Wno-deprecated-declarations
+ CFLAGS  += -Wmissing-prototypes
+ CFLAGS  += -fms-extensions -funsigned-char -fno-strict-aliasing
+ CFLAGS  += -D_FILE_OFFSET_BITS=64
+

@@ -1,0 +1,11 @@
+--- ./src/descrambler/descrambler.c.orig	2014-07-19 23:15:07.000000000 +0800
++++ ./src/descrambler/descrambler.c	2014-07-25 09:59:17.000000000 +0800
+@@ -744,6 +744,8 @@
+   uint8_t c_sys = caid >> 8;
+   
+   switch(caid) {
++    case 0x4ad2:
++      return CARD_STREAMGUARD;
+     case 0x5581:
+     case 0x4aee:
+       return CARD_BULCRYPT;

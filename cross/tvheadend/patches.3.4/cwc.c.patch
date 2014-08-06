@@ -1,0 +1,31 @@
+--- ./src/descrambler/cwc.c.orig	2013-08-29 00:08:39.000000000 +0800
++++ ./src/descrambler/cwc.c	2014-07-24 15:24:26.000000000 +0800
+@@ -65,6 +65,7 @@
+   CARD_NDS,
+   CARD_CRYPTOWORKS,
+   CARD_BULCRYPT,
++  CARD_STREAMGUARD,
+   CARD_UNKNOWN
+ } card_type_t;
+ 
+@@ -676,6 +677,10 @@
+   uint8_t c_sys = cwc->cwc_caid >> 8;
+ 
+   switch(cwc->cwc_caid) {
++  case 0x4ad2:
++    cwc->cwc_card_type = CARD_STREAMGUARD;
++    tvhlog(LOG_INFO, "cwc", "%s:%i: STREAMGUARD card",cwc->cwc_hostname, cwc->cwc_port);
++    return;
+   case 0x5581:
+   case 0x4aee:
+     cwc->cwc_card_type = CARD_BULCRYPT;
+@@ -1327,6 +1332,9 @@
+       case CARD_BULCRYPT:
+ 	cwc_emm_bulcrypt(cwc, data, len);
+ 	break;
++    case CARD_STREAMGUARD:
++    cwc_emm_dre(cwc, data, len);
++    break;
+       case CARD_UNKNOWN:
+ 	break;
+       }

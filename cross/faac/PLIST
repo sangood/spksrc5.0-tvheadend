@@ -1,0 +1,9 @@
+bin/faac
+include/faaccfg.h
+include/faac.h
+lib/libfaac.a
+lib/libfaac.la
+lib/libfaac.so
+lib/libfaac.so.0
+lib/libfaac.so.0.0.0
+share/man/man1/faac.1
